@@ -1,0 +1,73 @@
+<section class="products-container">
+  <!-- Barra de búsqueda -->
+  <div class="search-container">
+    <div class="search-input-wrapper">
+      <input type="text" class="search-input" placeholder="Buscar productos..." [(ngModel)]="searchTerm"
+        (input)="onSearch()" [disabled]="isLoading" />
+      <button *ngIf="searchTerm" class="clear-search-btn" (click)="clearSearch()" title="Limpiar búsqueda">
+        ✕
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-container">
+    <div class="loading-spinner"></div>
+    <p>Cargando productos...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error && !isLoading" class="error-container">
+    <div class="error-message">
+      <p>{{ error }}</p>
+      <button class="retry-btn" (click)="refreshData()">
+        Reintentar
+      </button>
+    </div>
+  </div>
+
+  <!-- Tabla de productos -->
+  <div *ngIf="!isLoading && !error" class="datatable-container">
+    <table class="products-table">
+      <thead>
+        <tr>
+          <th *ngFor="let col of displayedColumns">{{ col }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of paginatedProducts" class="product-row">
+          <td class="logo-cell">
+            <div class="logo-avatar">{{ getLogoInitials(product) }}</div>
+          </td>
+          <td class="product-name">{{ product.name }}</td>
+          <td class="product-description">{{ product.description }}</td>
+          <td class="release-date">{{ product.date_release | date:'dd/MM/yyyy' }}</td>
+          <td class="restructure-date">{{ product.date_revision | date:'dd/MM/yyyy' }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Mensaje cuando no hay datos -->
+    <div *ngIf="!hasResults" class="no-data">
+      <p *ngIf="searchTerm">No se encontraron productos que coincidan con "{{ searchTerm }}"</p>
+      <p *ngIf="!searchTerm">No hay productos disponibles</p>
+    </div>
+  </div>
+
+  <!-- Paginación -->
+  <div *ngIf="!isLoading && !error && hasResults" class="pagination-container">
+    <div class="results-info">
+      {{ totalResults }} Resultado{{ totalResults !== 1 ? 's' : '' }}
+    </div>
+    <div class="pagination-controls">
+      <select [(ngModel)]="resultsPerPage" (change)="onResultsPerPageChange()" class="results-per-page"
+        [disabled]="isLoading">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+      </select>
+    </div>
+  </div>
+</section>

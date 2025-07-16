@@ -1,0 +1,20 @@
+.container-page-form {
+  min-height: 100dvh;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #f4f6f9;
+
+  .container {
+    background-color: #fff;
+    max-width: 900px;
+    width: 100%;
+    padding: 8px;
+    .title{
+      text-align: center;
+      min-height: 50px;
+      border-bottom: #f4f6f9 2px solid;
+    }
+  }
+}
