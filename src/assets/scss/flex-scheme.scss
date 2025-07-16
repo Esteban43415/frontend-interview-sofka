@@ -13,7 +13,24 @@
   margin-left: -15px;
 }
 
-// Columnas base
+.flex{
+  display: flex;
+}
+
+@for $i from 1 through 100 {
+  .row-gap-#{$i} {
+    row-gap: #{$i}px;
+  }
+
+  .col-gap-#{$i} {
+    column-gap: #{$i}px;
+  }
+
+  .gap-#{$i} {
+    gap: #{$i}px;
+  }
+}
+
 .col {
   flex-basis: 0;
   flex-grow: 1;
