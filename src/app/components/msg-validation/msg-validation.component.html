@@ -1,0 +1,13 @@
+@if (formCtrl && _validator.validatorFormTxt( formField,  formCtrl) != '') {
+    <div
+        class="error-msg"
+    >
+        <span
+            class="text-error"
+        >
+            {{ _validator.validatorFormTxt( formField,  formCtrl) }}
+        </span>
+    </div>
+}
+
+

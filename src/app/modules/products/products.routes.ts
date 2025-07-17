@@ -25,4 +25,18 @@ export const ProductRoting: Routes = [
       ],
     },
   },
+  {
+    path: 'edit/:id',
+    component: AddProductComponent,
+    data: {
+      title: 'Editar producto',
+      urls: [
+        {
+          title: 'Editar producto',
+          url: `/${AppRoutes.dashboard}/products/edit/:id`,
+        },
+      ],
+
+    },
+  },
 ];

@@ -44,6 +44,9 @@
           <td class="product-description">{{ product.description }}</td>
           <td class="release-date">{{ product.date_release | date:'dd/MM/yyyy' }}</td>
           <td class="restructure-date">{{ product.date_revision | date:'dd/MM/yyyy' }}</td>
+          <td>
+            <app-dropdown></app-dropdown>
+          </td>
         </tr>
       </tbody>
     </table>

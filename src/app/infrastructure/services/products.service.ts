@@ -18,4 +18,40 @@ export class ProductsService {
       return null;
     }
   }
+
+  async getProductById(id: string) {
+    try {
+      const response = await lastValueFrom<any>(
+        this.http.get(`${Api.productsById(id)}`)
+      );
+      return response;
+    } catch (error) {
+      console.error('Error fetching product by ID:', error);
+      return null;
+    }
+  }
+
+  async addProduct(product: any) {
+    try {
+      const response = await lastValueFrom<any>(
+        this.http.post(Api.products, product)
+      );
+      return response;
+    } catch (error) {
+      console.error('Error adding product:', error);
+      return null;
+    }
+  }
+
+  async updateProduct(id: string, product: any) {
+    try {
+      const response = await lastValueFrom<any>(
+        this.http.put(Api.productsById(id), product)
+      );
+      return response;
+    } catch (error) {
+      console.error('Error adding product:', error);
+      return null;
+    }
+  }
 }

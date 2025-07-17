@@ -1,42 +1,73 @@
-
-.form-group{
+.form-group {
   display: flex;
   flex-direction: column;
-  gap:8px;
+  gap: 8px;
+  position: relative;
 }
 
-input{
+msg-validation {
+  position: absolute;
+  bottom: -22px;
+  left: 0;
+  right: 0;
+  text-align: left;
+}
+
+.is-invalid {
+  border: 1px solid #e04b4b;
+}
+
+input {
   appearance: none !important;
   min-height: 50px;
-  border:1px solid #ccc;
+  border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #fff;
   padding-inline: 15px;
+  transition: all 0.15s ease-in-out;
 }
 
-.footer-buttons{
+.footer-buttons {
   min-height: 120px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+
+  div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    column-gap: 24px;
+  }
 }
 
+.btn {
+  font-family: 'Prelo', sans-serif;
+}
 
-.btn-save{
+.btn-save {
   appearance: none !important;
   min-height: 50px;
   background-color: #f5df66;
   border-radius: 4px;
-  border:none;
+  border: none;
   min-width: 100px;
-  font-weight:600 ;
+  font-weight: 600;
   color: #172d61;
 }
 
-.btn-reset{
+.btn-reset {
   appearance: none !important;
   min-height: 50px;
   background-color: #eaecf2;
   border-radius: 4px;
-  border:none;
+  border: none;
   min-width: 100px;
-  font-weight:600;
+  font-weight: 600;
   color: #172d61;
+}
+
+
+input[type="date"]::-webkit-datetime-edit {
+  font-family: 'Prelo', sans-serif;
 }

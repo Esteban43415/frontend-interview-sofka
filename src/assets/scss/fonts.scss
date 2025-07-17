@@ -1,0 +1,216 @@
+@font-face {
+    font-family: 'Prelo';
+    src: url('../fonts/Prelo/Prelo-BlackItalic.eot');
+    src: local('Prelo-Black Italic'), local('Prelo-BlackItalic'),
+        url('../fonts/Prelo/Prelo-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Prelo/Prelo-BlackItalic.woff2') format('woff2'),
+        url('../fonts/Prelo/Prelo-BlackItalic.woff') format('woff'),
+        url('../fonts/Prelo/Prelo-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Prelo';
+    src: url('../fonts/Prelo/Prelo-BoldItalic.eot');
+    src: local('Prelo-Bold Italic'), local('Prelo-BoldItalic'),
+        url('../fonts/Prelo/Prelo-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Prelo/Prelo-BoldItalic.woff2') format('woff2'),
+        url('../fonts/Prelo/Prelo-BoldItalic.woff') format('woff'),
+        url('../fonts/Prelo/Prelo-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Prelo';
+    src: url('../fonts/Prelo/Prelo-ExtraLightItalic.eot');
+    src: local('Prelo-ExtraLight Italic'), local('Prelo-ExtraLightItalic'),
+        url('../fonts/Prelo/Prelo-ExtraLightItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Prelo/Prelo-ExtraLightItalic.woff2') format('woff2'),
+        url('../fonts/Prelo/Prelo-ExtraLightItalic.woff') format('woff'),
+        url('../fonts/Prelo/Prelo-ExtraLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Prelo';
+    src: url('../fonts/Prelo/Prelo-Bold.eot');
+    src: local('Prelo-Bold'),
+        url('../fonts/Prelo/Prelo-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Prelo/Prelo-Bold.woff2') format('woff2'),
+        url('../fonts/Prelo/Prelo-Bold.woff') format('woff'),
+        url('../fonts/Prelo/Prelo-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Prelo';
+    src: url('../fonts/Prelo/Prelo-Black.eot');
+    src: local('Prelo-Black'),
+        url('../fonts/Prelo/Prelo-Black.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Prelo/Prelo-Black.woff2') format('woff2'),
+        url('../fonts/Prelo/Prelo-Black.woff') format('woff'),
+        url('../fonts/Prelo/Prelo-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Prelo';
+    src: url('../fonts/Prelo/Prelo-ExtraLight.eot');
+    src: local('Prelo-ExtraLight'),
+        url('../fonts/Prelo/Prelo-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Prelo/Prelo-ExtraLight.woff2') format('woff2'),
+        url('../fonts/Prelo/Prelo-ExtraLight.woff') format('woff'),
+        url('../fonts/Prelo/Prelo-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Prelo';
+    src: url('../fonts/Prelo/Prelo-LightItalic.eot');
+    src: local('Prelo-Light Italic'), local('Prelo-LightItalic'),
+        url('../fonts/Prelo/Prelo-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Prelo/Prelo-LightItalic.woff2') format('woff2'),
+        url('../fonts/Prelo/Prelo-LightItalic.woff') format('woff'),
+        url('../fonts/Prelo/Prelo-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Prelo';
+    src: url('../fonts/Prelo/Prelo-ExtraBold.eot');
+    src: local('Prelo-ExtraBold'),
+        url('../fonts/Prelo/Prelo-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Prelo/Prelo-ExtraBold.woff2') format('woff2'),
+        url('../fonts/Prelo/Prelo-ExtraBold.woff') format('woff'),
+        url('../fonts/Prelo/Prelo-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Prelo';
+    src: url('../fonts/Prelo/Prelo-ExtraBoldItalic.eot');
+    src: local('Prelo-ExtraBold Italic'), local('Prelo-ExtraBoldItalic'),
+        url('../fonts/Prelo/Prelo-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Prelo/Prelo-ExtraBoldItalic.woff2') format('woff2'),
+        url('../fonts/Prelo/Prelo-ExtraBoldItalic.woff') format('woff'),
+        url('../fonts/Prelo/Prelo-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Prelo';
+    src: url('../fonts/Prelo/Prelo-Light.eot');
+    src: local('Prelo-Light'),
+        url('../fonts/Prelo/Prelo-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Prelo/Prelo-Light.woff2') format('woff2'),
+        url('../fonts/Prelo/Prelo-Light.woff') format('woff'),
+        url('../fonts/Prelo/Prelo-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Prelo';
+    src: url('../fonts/Prelo/Prelo-SemiBoldItalic.eot');
+    src: local('Prelo-SemiBold Italic'), local('Prelo-SemiBoldItalic'),
+        url('../fonts/Prelo/Prelo-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Prelo/Prelo-SemiBoldItalic.woff2') format('woff2'),
+        url('../fonts/Prelo/Prelo-SemiBoldItalic.woff') format('woff'),
+        url('../fonts/Prelo/Prelo-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Prelo';
+    src: url('../fonts/Prelo/Prelo-SemiBold.eot');
+    src: local('Prelo-SemiBold'),
+        url('../fonts/Prelo/Prelo-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Prelo/Prelo-SemiBold.woff2') format('woff2'),
+        url('../fonts/Prelo/Prelo-SemiBold.woff') format('woff'),
+        url('../fonts/Prelo/Prelo-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Prelo Book';
+    src: url('../fonts/Prelo/Prelo-BookItalic.eot');
+    src: local('Prelo-Book Italic'), local('Prelo-BookItalic'),
+        url('../fonts/Prelo/Prelo-BookItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Prelo/Prelo-BookItalic.woff2') format('woff2'),
+        url('../fonts/Prelo/Prelo-BookItalic.woff') format('woff'),
+        url('../fonts/Prelo/Prelo-BookItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Prelo Hairline';
+    src: url('../fonts/Prelo/Prelo-HairlineItalic.eot');
+    src: local('Prelo-Hairline Italic'), local('Prelo-HairlineItalic'),
+        url('../fonts/Prelo/Prelo-HairlineItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Prelo/Prelo-HairlineItalic.woff2') format('woff2'),
+        url('../fonts/Prelo/Prelo-HairlineItalic.woff') format('woff'),
+        url('../fonts/Prelo/Prelo-HairlineItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Prelo Hairline';
+    src: url('../fonts/Prelo/Prelo-Hairline.eot');
+    src: local('Prelo-Hairline'),
+        url('../fonts/Prelo/Prelo-Hairline.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Prelo/Prelo-Hairline.woff2') format('woff2'),
+        url('../fonts/Prelo/Prelo-Hairline.woff') format('woff'),
+        url('../fonts/Prelo/Prelo-Hairline.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Prelo';
+    src: url('../fonts/Prelo/Prelo-MediumItalic.eot');
+    src: local('Prelo-Medium Italic'), local('Prelo-MediumItalic'),
+        url('../fonts/Prelo/Prelo-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Prelo/Prelo-MediumItalic.woff2') format('woff2'),
+        url('../fonts/Prelo/Prelo-MediumItalic.woff') format('woff'),
+        url('../fonts/Prelo/Prelo-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Prelo Book';
+    src: url('../fonts/Prelo/Prelo-Book.eot');
+    src: local('Prelo-Book'),
+        url('../fonts/Prelo/Prelo-Book.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Prelo/Prelo-Book.woff2') format('woff2'),
+        url('../fonts/Prelo/Prelo-Book.woff') format('woff'),
+        url('../fonts/Prelo/Prelo-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Prelo';
+    src: url('../fonts/Prelo/Prelo-Medium.eot');
+    src: local('Prelo-Medium'),
+        url('../fonts/Prelo/Prelo-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Prelo/Prelo-Medium.woff2') format('woff2'),
+        url('../fonts/Prelo/Prelo-Medium.woff') format('woff'),
+        url('../fonts/Prelo/Prelo-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+

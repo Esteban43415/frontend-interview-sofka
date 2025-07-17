@@ -1,8 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 @use 'assets/scss/flex-scheme.scss';
+@use 'assets/scss/fonts.scss';
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Prelo', sans-serif;
   margin: 0;
   padding: 0;
+}
+
+
+.relative {
+  position: relative;
+}
+
+.table-wrapper {
+  position: relative;
+  overflow: visible !important;
+}
+
+table {
+  overflow: visible;
+}
+
+td {
+  position: relative;
+  overflow: visible;
 }

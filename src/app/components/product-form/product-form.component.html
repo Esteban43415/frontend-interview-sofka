@@ -1,68 +1,92 @@
 <article>
-  <form class="container">
-    <div class="row gap-8 justify-content-center">
+  <form class="container" [formGroup]="formProductGroup" (submit)="onSubmit()">
+    <div class="row row-gap-24 col-gap-8 justify-content-center">
       <div class="col-sm-12 col-md-6 col-4">
         <div class="form-group">
-          <label for="productName">
-            Nombre del Producto
+          <label for="id">
+            ID
           </label>
-          <input type="text" id="productName" class="form-control" placeholder="Ingrese el nombre del producto">
+          <input
+            [ngClass]="{ 'is-invalid': formProductGroup.get('id')?.invalid && formProductGroup.get('id')?.touched }"
+            formControlName="id" type="text" id="id" class="form-control" placeholder="">
+          <msg-validation [formCtrl]="formProductGroup" [formField]="'id'" [isFloat]="false" />
+
         </div>
       </div>
       <div class="col-sm-12 col-md-6 col-4">
         <div class="form-group">
-          <label for="productName">
-            Nombre del Producto
+          <label for="name">
+            Nombre
           </label>
-          <input type="text" id="productName" class="form-control" placeholder="Ingrese el nombre del producto">
+          <input
+            [ngClass]="{ 'is-invalid': formProductGroup.get('name')?.invalid && formProductGroup.get('name')?.touched }"
+            formControlName="name" type="text" id="name" class="form-control" placeholder="">
+          <msg-validation [formCtrl]="formProductGroup" [formField]="'name'" [isFloat]="false" />
         </div>
       </div>
       <div class="col-sm-12 col-md-6 col-4">
         <div class="form-group">
-          <label for="productName">
-            Nombre del Producto
+          <label for="description">
+            Descripción
           </label>
-          <input type="text" id="productName" class="form-control" placeholder="Ingrese el nombre del producto">
+          <input
+            [ngClass]="{ 'is-invalid': formProductGroup.get('description')?.invalid && formProductGroup.get('description')?.touched }"
+            formControlName="description" type="text" id="description" class="form-control"
+            placeholder="Ingrese la descripción del producto">
+          <msg-validation [formCtrl]="formProductGroup" [formField]="'description'" [isFloat]="false" />
+
         </div>
       </div>
       <div class="col-sm-12 col-md-6 col-4">
         <div class="form-group">
-          <label for="productName">
-            Nombre del Producto
+          <label for="logo">
+            Logo
           </label>
-          <input type="text" id="productName" class="form-control" placeholder="Ingrese el nombre del producto">
+          <input
+            [ngClass]="{ 'is-invalid': formProductGroup.get('logo')?.invalid && formProductGroup.get('logo')?.touched }"
+            formControlName="logo" type="text" id="logo" class="form-control"
+            placeholder="Ingrese la URL del logo">
+          <msg-validation [formCtrl]="formProductGroup" [formField]="'logo'" [isFloat]="false" />
+
         </div>
       </div>
       <div class="col-sm-12 col-md-6 col-4">
         <div class="form-group">
-          <label for="productName">
-            Nombre del Producto
+          <label for="date_release">
+            Fecha de liberación
           </label>
-          <input type="text" id="productName" class="form-control" placeholder="Ingrese el nombre del producto">
+          <input
+            [ngClass]="{ 'is-invalid': formProductGroup.get('date_release')?.invalid && formProductGroup.get('date_release')?.touched }"
+            formControlName="date_release" type="date" id="date_release" class="form-control"
+            placeholder="Ingrese la fecha de liberación">
+          <msg-validation [formCtrl]="formProductGroup" [formField]="'date_release'" [isFloat]="false" />
+
         </div>
       </div>
       <div class="col-sm-12 col-md-6 col-4">
         <div class="form-group">
-          <label for="productName">
-            Nombre del Producto
+          <label for="date_revision">
+            Fecha de revisión
           </label>
-          <input type="text" id="productName" class="form-control" placeholder="Ingrese el nombre del producto">
+          <input
+            [ngClass]="{ 'is-invalid': formProductGroup.get('date_revision')?.invalid && formProductGroup.get('date_revision')?.touched }"
+            formControlName="date_revision" type="date" id="date_revision" class="form-control"
+            placeholder="Ingrese la fecha de revisión">
+          <msg-validation [formCtrl]="formProductGroup" [formField]="'date_revision'" [isFloat]="false" />
+
         </div>
       </div>
 
     </div>
-    <div class="row justify-content-center align-items-center footer-buttons">
-      <div class="col-sm-12 col-md-6 col-4 flex justify-content-end">
-        <button type="submit" class="btn btn-reset w-100">
+    <div class="justify-content-center align-items-center footer-buttons">
+      <div>
+        <button type="reset" class="btn btn-reset w-100">
           Reiniciar
         </button>
-      </div>
-      <div class="col-sm-12 col-md-6 col-4 flex justify-content-start">
         <button type="submit" class="btn btn-save w-100">
           Guardar
         </button>
       </div>
     </div>
-
   </form>
 </article>

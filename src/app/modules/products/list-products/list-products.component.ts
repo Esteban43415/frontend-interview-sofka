@@ -29,6 +29,7 @@ export class ListProductsComponent implements OnInit {
     'Descripción',
     'Fecha de liberación',
     'Fecha de reestructuración',
+    ''
   ];
 
   constructor(private _product: ProductsService) {}
