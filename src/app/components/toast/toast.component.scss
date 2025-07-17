@@ -1,0 +1,39 @@
+.toast {
+  padding: 12px 20px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  color: white;
+  font-size: 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  animation: fadeInOut 5s forwards;
+
+  &.success {
+    background-color: #28a745;
+  }
+
+  &.error {
+    background-color: #dc3545;
+  }
+
+  &.info {
+    background-color: #007bff;
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

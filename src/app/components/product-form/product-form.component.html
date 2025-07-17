@@ -44,8 +44,7 @@
           </label>
           <input
             [ngClass]="{ 'is-invalid': formProductGroup.get('logo')?.invalid && formProductGroup.get('logo')?.touched }"
-            formControlName="logo" type="text" id="logo" class="form-control"
-            placeholder="Ingrese la URL del logo">
+            formControlName="logo" type="text" id="logo" class="form-control" placeholder="Ingrese la URL del logo">
           <msg-validation [formCtrl]="formProductGroup" [formField]="'logo'" [isFloat]="false" />
 
         </div>
@@ -80,10 +79,10 @@
     </div>
     <div class="justify-content-center align-items-center footer-buttons">
       <div>
-        <button type="reset" class="btn btn-reset w-100">
+        <button type="reset" class="btn btn-reset ">
           Reiniciar
         </button>
-        <button type="submit" class="btn btn-save w-100">
+        <button type="submit" class="btn btn-save ">
           Guardar
         </button>
       </div>

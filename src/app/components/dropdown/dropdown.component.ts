@@ -1,22 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-dropdown',
+  selector: 'app-dropdown-menu',
   standalone: false,
-  templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.scss']
+  template: `
+    <ul class="dropdown-content">
+      <li (click)="select('edit')">Editar</li>
+      <li (click)="select('delete')">Eliminar</li>
+    </ul>
+  `,
+  styleUrls: ['./dropdown.component.scss'],
 })
 export class DropdownComponent {
-  isOpen = false;
-  selected = 'Selecciona una opción';
-  options = ['Opción 1', 'Opción 2', 'Opción 3'];
+  @Output() optionSelected = new EventEmitter<string>();
 
-  toggleDropdown() {
-    this.isOpen = !this.isOpen;
-  }
-
-  selectOption(option: string) {
-    this.selected = option;
-    this.isOpen = false;
+  select(option: string) {
+    this.optionSelected.emit(option);
   }
 }

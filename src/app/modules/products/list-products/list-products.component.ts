@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { ConnectedPosition, Overlay, OverlayRef } from '@angular/cdk/overlay';
+import { ComponentPortal } from '@angular/cdk/portal';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Router } from '@angular/router';
+import { ConfirmDialogComponent } from '@components/confirm-dialog/confirm-dialog.component';
 import { IProducts } from '@dto/product.dto';
 import { ProductsService } from '@services/products.service';
+import { AppRoutes } from '@utils/app-routes';
 
 @Component({
   selector: 'app-list-products',
@@ -9,12 +14,10 @@ import { ProductsService } from '@services/products.service';
   styleUrl: './list-products.component.scss',
 })
 export class ListProductsComponent implements OnInit {
-  // Constantes
   private readonly DEFAULT_INITIALS = 'XX';
   private readonly MAX_INITIALS_LENGTH = 2;
   private readonly DEFAULT_RESULTS_PER_PAGE = 5;
 
-  // State
   products: IProducts[] = [];
   filteredProducts: IProducts[] = [];
   searchTerm: string = '';
@@ -23,16 +26,32 @@ export class ListProductsComponent implements OnInit {
   isLoading: boolean = false;
   error: string | null = null;
 
+  overlayPositions: ConnectedPosition[] = [
+    {
+      originX: 'end',
+      originY: 'bottom',
+      overlayX: 'end',
+      overlayY: 'top',
+    },
+  ];
+
+  openDropdownId: string | null = null;
+
   displayedColumns: string[] = [
     'Logo',
     'Nombre del producto',
     'Descripción',
     'Fecha de liberación',
     'Fecha de reestructuración',
-    ''
+    '',
   ];
 
-  constructor(private _product: ProductsService) {}
+  constructor(
+    private overlay: Overlay,
+    private viewContainerRef: ViewContainerRef,
+    private _product: ProductsService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getProducts();
@@ -70,7 +89,8 @@ export class ListProductsComponent implements OnInit {
 
   private handleProductsError(error: any): void {
     console.error('Error al cargar productos:', error);
-    this.error = 'Error al cargar los productos. Por favor, intente nuevamente.';
+    this.error =
+      'Error al cargar los productos. Por favor, intente nuevamente.';
     this.clearProductsData();
   }
 
@@ -97,7 +117,6 @@ export class ListProductsComponent implements OnInit {
     this.currentPage = 1;
   }
 
-  // Métodos para paginación
   get paginatedProducts(): IProducts[] {
     if (!this.filteredProducts.length) {
       return [];
@@ -124,7 +143,6 @@ export class ListProductsComponent implements OnInit {
     this.resetToFirstPage();
   }
 
-  // Método mejorado para extraer iniciales
   getLogoInitials(product: IProducts): string {
     if (!product?.name) {
       return this.DEFAULT_INITIALS;
@@ -150,7 +168,6 @@ export class ListProductsComponent implements OnInit {
       if (initials.length >= this.MAX_INITIALS_LENGTH) break;
     }
 
-    // Si solo hay una palabra, tomar las primeras dos letras
     if (initials.length === 1 && words[0]?.length > 1) {
       initials += words[0].charAt(1).toUpperCase();
     }
@@ -162,14 +179,71 @@ export class ListProductsComponent implements OnInit {
     return initials.padEnd(this.MAX_INITIALS_LENGTH, 'X');
   }
 
-  // Método para recargar datos
   async refreshData(): Promise<void> {
     await this.getProducts();
   }
 
-  // Método para limpiar búsqueda
   clearSearch(): void {
     this.searchTerm = '';
     this.onSearch();
+  }
+
+  addProduct(): void {
+    this.router.navigate([AppRoutes.create_product]);
+  }
+
+  onAction(action: string, product: any) {
+    console.log('Acción:', action, 'Producto:', product);
+    this.openDropdownId = null;
+    if (action === 'edit') {
+      this.router.navigate([AppRoutes.edit_product(product.id)]);
+    }
+
+    if (action === 'delete') {
+      this.openConfirmDialog(product);
+    }
+  }
+
+  closeDropdown() {
+    this.openDropdownId = null;
+  }
+
+  toggleDropdown(productId: string) {
+    this.openDropdownId = this.openDropdownId === productId ? null : productId;
+  }
+
+  async deleteProduct(id: string) {
+    const response = await this._product.deleteProduct(id);
+    if (response) {
+      this.refreshData();
+    }
+  }
+
+  openConfirmDialog(product: any) {
+    const overlayRef: OverlayRef = this.overlay.create({
+      hasBackdrop: true,
+      backdropClass: 'cdk-overlay-dark-backdrop',
+      positionStrategy: this.overlay
+        .position()
+        .global()
+        .centerHorizontally()
+        .centerVertically(),
+    });
+
+    const dialogPortal = new ComponentPortal(
+      ConfirmDialogComponent,
+      this.viewContainerRef
+    );
+    const componentRef = overlayRef.attach(dialogPortal);
+
+    const sub = componentRef.instance.confirmed.subscribe((result: boolean) => {
+      overlayRef.dispose();
+      if (result) {
+        this.deleteProduct(product.id);
+      }
+      sub.unsubscribe();
+    });
+
+    overlayRef.backdropClick().subscribe(() => overlayRef.dispose());
   }
 }

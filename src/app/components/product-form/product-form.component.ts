@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IProducts } from '@dto/product.dto';
 import { ProductsService } from '@services/products.service';
 
@@ -19,7 +19,8 @@ export class ProductFormComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private _products: ProductsService
+    private _products: ProductsService,
+    private route: Router
   ) {
     this.formProductGroup = this.formBuilder.group({
       id: [
@@ -74,9 +75,11 @@ export class ProductFormComponent {
       console.log('Editing product with ID:', this.product.id);
       // Logic to edit the product can be added here
       this.UpdateProduct();
-      return;
+      return
+    }else{
+
+      this.addProduct();
     }
-    this.addProduct();
   }
 
   async UpdateProduct() {
@@ -91,6 +94,8 @@ export class ProductFormComponent {
     if (response) {
       console.log('Product updated successfully:', response);
       this.formProductGroup.reset();
+      this.route.navigate(['/']);
+
     }
   }
 
@@ -99,8 +104,8 @@ export class ProductFormComponent {
       this.formProductGroup.value
     );
     if (response) {
-      console.log('Product added successfully:', response);
       this.formProductGroup.reset();
+      this.route.navigate(['/']);
     }
   }
 }

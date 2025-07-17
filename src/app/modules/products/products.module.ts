@@ -6,9 +6,18 @@ import { FormsModule } from '@angular/forms';
 import { ListProductsComponent } from './list-products/list-products.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ComponentsModule } from '@components/components.module';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { PortalModule } from '@angular/cdk/portal';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, RouterModule.forChild(ProductRoting),ComponentsModule],
+  imports: [
+    CommonModule,
+    OverlayModule,
+    PortalModule,
+    FormsModule,
+    RouterModule.forChild(ProductRoting),
+    ComponentsModule,
+  ],
   declarations: [ListProductsComponent, AddProductComponent],
   exports: [ListProductsComponent, AddProductComponent],
   providers: [],
