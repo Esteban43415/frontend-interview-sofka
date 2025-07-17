@@ -30,6 +30,7 @@ td {
 
 .btn {
   font-family: 'Prelo', sans-serif;
+  cursor: pointer;
 }
 
 .btn-save {
@@ -41,6 +42,11 @@ td {
   min-width: 100px;
   font-weight: 600;
   color: #172d61;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #f5e0668e;
+  }
 }
 
 .btn-reset {
@@ -52,4 +58,9 @@ td {
   min-width: 100px;
   font-weight: 600;
   color: #172d61;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #eaecf291;
+  }
 }

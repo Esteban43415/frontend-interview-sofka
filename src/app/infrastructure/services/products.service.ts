@@ -8,7 +8,7 @@ import { ToastService } from '../toast.service';
   providedIn: 'root',
 })
 export class ProductsService {
-  constructor(private http: HttpClient, private _toast: ToastService) {}
+  constructor(private http: HttpClient, private _toast: ToastService) { }
 
   async getAllProducts() {
     try {
@@ -29,6 +29,19 @@ export class ProductsService {
         this._toast.show('Producto obtenido con éxito', 'success');
       }
       return response;
+    } catch (error) {
+      this._toast.show('Error al obtener producto', 'error');
+      console.error('Error fetching product by ID:', error);
+      return null;
+    }
+  }
+
+  async verifyProduct(id: string) {
+    try {
+      const response = await lastValueFrom<any>(
+        this.http.get(Api.verifyProduct(id))
+      )
+      return response
     } catch (error) {
       this._toast.show('Error al obtener producto', 'error');
       console.error('Error fetching product by ID:', error);

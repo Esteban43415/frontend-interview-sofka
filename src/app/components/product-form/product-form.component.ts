@@ -1,8 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastService } from '@app/infrastructure/toast.service';
 import { IProducts } from '@dto/product.dto';
 import { ProductsService } from '@services/products.service';
+import { debounceTime, filter } from 'rxjs';
 
 @Component({
   selector: 'product-form',
@@ -19,17 +21,22 @@ export class ProductFormComponent {
 
   constructor(
     private formBuilder: FormBuilder,
+    private route: Router,
+    private _toast: ToastService,
     private _products: ProductsService,
-    private route: Router
+
   ) {
     this.formProductGroup = this.formBuilder.group({
       id: [
         '',
-        [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(10),
-        ],
+        {
+          validators: [
+            Validators.required,
+            Validators.minLength(3),
+            Validators.maxLength(10),
+          ],
+          updateOn: 'blur'
+        }
       ],
       name: [
         '',
@@ -51,6 +58,24 @@ export class ProductFormComponent {
       date_release: ['', [Validators.required]],
       date_revision: ['', [Validators.required]],
     });
+
+
+
+    this.formProductGroup.get('id')?.valueChanges.pipe(
+    ).subscribe(async (value) => {
+      this.verifyProduct(value);
+    });
+  }
+
+  async verifyProduct(id: string) {
+    const response = await this._products.verifyProduct(id)
+    if (typeof response == 'boolean') {
+      if (response) {
+        this._toast.show('Ya existe un producto con este ID', "error")
+        return response;
+      }
+    }
+    return;
   }
 
   ngOnChanges() {
@@ -68,17 +93,20 @@ export class ProductFormComponent {
     }
   }
 
-  onSubmit() {
+  async onSubmit() {
     this.formProductGroup.markAllAsTouched();
     if (this.formProductGroup.invalid) return;
+
     if (this.product) {
       console.log('Editing product with ID:', this.product.id);
       // Logic to edit the product can be added here
       this.UpdateProduct();
       return
-    }else{
-
+    } else {
+      const id = this.formProductGroup.get('id')?.value
+      if (await this.verifyProduct(id)) return;
       this.addProduct();
+      return;
     }
   }
 

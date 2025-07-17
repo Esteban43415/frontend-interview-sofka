@@ -7,5 +7,5 @@ export class Api {
   static readonly productsById = (id: string) =>
     `${url}bp/products/${id}`;
   static readonly verifyProduct = (id: string) =>
-    `${url}bp/products/verification/:id${id}`;
+    `${url}bp/products/verification/${id}`;
 }
