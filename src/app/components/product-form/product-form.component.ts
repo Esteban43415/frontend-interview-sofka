@@ -23,8 +23,7 @@ export class ProductFormComponent {
     private formBuilder: FormBuilder,
     private route: Router,
     private _toast: ToastService,
-    private _products: ProductsService,
-
+    private _products: ProductsService
   ) {
     this.formProductGroup = this.formBuilder.group({
       id: [
@@ -35,8 +34,8 @@ export class ProductFormComponent {
             Validators.minLength(3),
             Validators.maxLength(10),
           ],
-          updateOn: 'blur'
-        }
+          updateOn: 'blur',
+        },
       ],
       name: [
         '',
@@ -59,19 +58,16 @@ export class ProductFormComponent {
       date_revision: ['', [Validators.required]],
     });
 
-
-
-    this.formProductGroup.get('id')?.valueChanges.pipe(
-    ).subscribe(async (value) => {
+    this.formProductGroup.get('id')?.valueChanges.subscribe((value) => {
       this.verifyProduct(value);
     });
   }
 
   async verifyProduct(id: string) {
-    const response = await this._products.verifyProduct(id)
+    const response = await this._products.verifyProduct(id);
     if (typeof response == 'boolean') {
       if (response) {
-        this._toast.show('Ya existe un producto con este ID', "error")
+        this._toast.show('Ya existe un producto con este ID', 'error');
         return response;
       }
     }
@@ -85,10 +81,13 @@ export class ProductFormComponent {
   setForm() {
     this.formProductGroup.reset();
     if (this.product) {
-      this.formProductGroup.patchValue({
-        ...this.product,
-      });
-      this.formProductGroup.get('id')?.disable();
+      this.formProductGroup.patchValue(
+        {
+          ...this.product,
+        },
+        { emitEvent: false }
+      );
+      this.formProductGroup.get('id')?.disable({ emitEvent: false });
       this.idProduct = this.product.id;
     }
   }
@@ -101,9 +100,9 @@ export class ProductFormComponent {
       console.log('Editing product with ID:', this.product.id);
       // Logic to edit the product can be added here
       this.UpdateProduct();
-      return
+      return;
     } else {
-      const id = this.formProductGroup.get('id')?.value
+      const id = this.formProductGroup.get('id')?.value;
       if (await this.verifyProduct(id)) return;
       this.addProduct();
       return;
@@ -123,7 +122,6 @@ export class ProductFormComponent {
       console.log('Product updated successfully:', response);
       this.formProductGroup.reset();
       this.route.navigate(['/']);
-
     }
   }
 
