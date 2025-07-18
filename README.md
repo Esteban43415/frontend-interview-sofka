@@ -1,59 +1,56 @@
-# FrontendInterviewMain
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.6.
+# Frontend Interview - Sofka
 
-## Development server
+Este proyecto es una prueba técnica desarrollada por Emilio Guzmán (eguzmanmoyano@gmail.com) para el proceso de selección en Sofka.
 
-To start a local development server, run:
+## Descripción
 
-```bash
-ng serve
-```
+Esta aplicación web está construida con Angular y permite la gestión de productos. Incluye funcionalidades para listar, buscar, agregar y editar productos, así como validaciones y mensajes de confirmación. El frontend consume servicios REST para obtener y manipular la información de productos.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Funcionalidades principales
 
-## Code scaffolding
+- **Listado de productos:** Visualiza una tabla paginada con los productos registrados, permite buscar por nombre o descripción y refrescar la información.
+- **Agregar producto:** Formulario para registrar un nuevo producto con validaciones de campos requeridos y longitud.
+- **Editar producto:** Permite modificar la información de un producto existente.
+- **Mensajes y confirmaciones:** Uso de componentes personalizados para mostrar mensajes de validación y confirmación de acciones.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Tecnologías utilizadas
 
-```bash
-ng generate component component-name
-```
+- Angular 19
+- TypeScript
+- RxJS
+- Angular CDK (Overlay, Portal)
+- SCSS
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Instalación y ejecución
 
-```bash
-ng generate --help
-```
+1. Instala las dependencias:
+   ```bash
+   npm install
+   ```
+2. Inicia el servidor de desarrollo:
+   ```bash
+   npm start
+   ```
+3. Accede a la aplicación en [http://localhost:4200](http://localhost:4200)
 
-## Building
+## Scripts disponibles
 
-To build the project run:
+- `npm start`: Inicia el servidor de desarrollo.
+- `npm run build`: Compila la aplicación para producción.
+- `npm test`: Ejecuta los tests unitarios con Karma.
 
-```bash
-ng build
-```
+## Estructura del proyecto
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+El código fuente principal se encuentra en la carpeta `src/app`, organizado en módulos, componentes y servicios. El módulo principal de productos (`modules/products`) contiene los componentes para listar y agregar productos, así como la lógica de rutas.
 
-## Running unit tests
+## Autor
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+**Emilio Guzmán**  
+eguzmanmoyano@gmail.com
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
+Este proyecto fue generado usando [Angular CLI](https://github.com/angular/angular-cli) versión 19.2.6.
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+...existing code...
