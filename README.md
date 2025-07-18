@@ -5,7 +5,7 @@ Este proyecto es una prueba técnica desarrollada por Emilio Guzmán (eguzmanmoy
 
 ## Descripción
 
-Esta aplicación web está construida con Angular y permite la gestión de productos. Incluye funcionalidades para listar, buscar, agregar y editar productos, así como validaciones y mensajes de confirmación. El frontend consume servicios REST para obtener y manipular la información de productos.
+Esta aplicación web está construida con Angular y permite la gestión de productos. Incluye funcionalidades para listar, buscar, agregar, editar y eliminar productos, así como validaciones y mensajes de confirmación. El frontend consume servicios REST para obtener y manipular la información de productos.
 
 ## Funcionalidades principales
 
