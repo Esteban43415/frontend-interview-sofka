@@ -12,6 +12,7 @@ Esta aplicación web está construida con Angular y permite la gestión de produ
 - **Listado de productos:** Visualiza una tabla paginada con los productos registrados, permite buscar por nombre o descripción y refrescar la información.
 - **Agregar producto:** Formulario para registrar un nuevo producto con validaciones de campos requeridos y longitud.
 - **Editar producto:** Permite modificar la información de un producto existente.
+- **Eliminar producto:** Permite eliminar un producto existente.
 - **Mensajes y confirmaciones:** Uso de componentes personalizados para mostrar mensajes de validación y confirmación de acciones.
 
 ## Tecnologías utilizadas
