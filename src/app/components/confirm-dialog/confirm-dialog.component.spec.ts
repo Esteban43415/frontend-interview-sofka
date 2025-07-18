@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ConfirmDialogComponent } from './confirm-dialog.component';
 
-describe('ConfirmDialogComponent', () => {
+describe('Componente de diálogo de confirmación', () => {
   let component: ConfirmDialogComponent;
   let fixture: ComponentFixture<ConfirmDialogComponent>;
 
@@ -14,17 +14,17 @@ describe('ConfirmDialogComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('debería crear el componente', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should emit true when confirm is called', () => {
+  it('debería emitir true cuando se confirma', () => {
     spyOn(component.confirmed, 'emit');
     component.confirm();
     expect(component.confirmed.emit).toHaveBeenCalledWith(true);
   });
 
-  it('should emit false when cancel is called', () => {
+  it('debería emitir false cuando se cancela', () => {
     spyOn(component.confirmed, 'emit');
     component.cancel();
     expect(component.confirmed.emit).toHaveBeenCalledWith(false);

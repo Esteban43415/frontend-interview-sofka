@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DropdownComponent } from './dropdown.component';
 
-describe('DropdownComponent', () => {
+describe('Componente de menú desplegable', () => {
   let component: DropdownComponent;
   let fixture: ComponentFixture<DropdownComponent>;
 
@@ -14,11 +14,11 @@ describe('DropdownComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('debería crear el componente', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should emit optionSelected with correct value', () => {
+  it('debería emitir la opción seleccionada correctamente', () => {
     spyOn(component.optionSelected, 'emit');
     component.select('edit');
     expect(component.optionSelected.emit).toHaveBeenCalledWith('edit');

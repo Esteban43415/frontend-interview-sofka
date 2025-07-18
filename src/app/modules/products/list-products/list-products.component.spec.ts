@@ -10,7 +10,7 @@ import { ProductsService } from '@services/products.service';
 class MockProductFormComponent {
   @Input() product: any;
 }
-describe('ListProductsComponent', () => {
+describe('Componente para listar productos', () => {
   let component: ListProductsComponent;
   let fixture: ComponentFixture<ListProductsComponent>;
   let productsServiceSpy: any;
@@ -36,25 +36,25 @@ describe('ListProductsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('debería crear el componente', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should load products on init', async () => {
+  it('debería cargar los productos al inicializar', async () => {
     productsServiceSpy.getAllProducts.and.returnValue(Promise.resolve({ data: mockProducts }));
     await component.getProducts();
     expect(component.products.length).toBe(2);
     expect(component.filteredProducts.length).toBe(2);
   });
 
-  it('should handle error on getProducts', async () => {
+  it('debería manejar el error al obtener productos', async () => {
     productsServiceSpy.getAllProducts.and.returnValue(Promise.reject('error'));
     await component.getProducts();
     expect(component.error).toBeTruthy();
     expect(component.products.length).toBe(0);
   });
 
-  it('should filter products by search term', () => {
+  it('debería filtrar productos por término de búsqueda', () => {
     component.products = mockProducts as any;
     component.filteredProducts = mockProducts as any;
     component.searchTerm = 'Dos';
@@ -63,7 +63,7 @@ describe('ListProductsComponent', () => {
     expect(component.filteredProducts[0].name).toContain('Dos');
   });
 
-  it('should clear search', () => {
+  it('debería limpiar la búsqueda', () => {
     component.products = mockProducts as any;
     component.filteredProducts = mockProducts as any;
     component.searchTerm = 'Uno';
@@ -72,7 +72,7 @@ describe('ListProductsComponent', () => {
     expect(component.filteredProducts.length).toBe(2);
   });
 
-  it('should paginate products', () => {
+  it('debería paginar los productos', () => {
     component.filteredProducts = Array(10).fill({ name: 'Test' }) as any;
     component.resultsPerPage = 5;
     component.currentPage = 2;

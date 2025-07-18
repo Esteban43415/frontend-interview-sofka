@@ -11,7 +11,7 @@ class MockMsgValidationComponent {
   @Input() isFloat: any;
 }
 
-describe('ProductFormComponent', () => {
+describe('Componente de formulario de producto', () => {
   let component: ProductFormComponent;
   let fixture: ComponentFixture<ProductFormComponent>;
 
@@ -26,11 +26,11 @@ describe('ProductFormComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('debería crear el componente', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should invalidate required fields', () => {
+  it('debería invalidar los campos requeridos', () => {
     const form = component.formProductGroup;
     form.setValue({
       id: '',
@@ -49,7 +49,7 @@ describe('ProductFormComponent', () => {
     expect(form.get('date_revision')?.hasError('required')).toBeTrue();
   });
 
-  it('should validate minLength and maxLength for id', () => {
+  it('debería validar minLength y maxLength para id', () => {
     const form = component.formProductGroup;
     form.get('id')?.setValue('ab');
     expect(form.get('id')?.hasError('minlength')).toBeTrue();
@@ -59,7 +59,7 @@ describe('ProductFormComponent', () => {
     expect(form.get('id')?.valid).toBeTrue();
   });
 
-  it('should validate minLength and maxLength for name', () => {
+  it('debería validar minLength y maxLength para name', () => {
     const form = component.formProductGroup;
     form.get('name')?.setValue('abcd');
     expect(form.get('name')?.hasError('minlength')).toBeTrue();
@@ -69,7 +69,7 @@ describe('ProductFormComponent', () => {
     expect(form.get('name')?.valid).toBeTrue();
   });
 
-  it('should validate minLength and maxLength for description', () => {
+  it('debería validar minLength y maxLength para description', () => {
     const form = component.formProductGroup;
     form.get('description')?.setValue('short');
     expect(form.get('description')?.hasError('minlength')).toBeTrue();

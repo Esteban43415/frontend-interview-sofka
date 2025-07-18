@@ -11,7 +11,7 @@ class MockProductFormComponent {
   @Input() product: any;
 }
 
-describe('AddProductComponent', () => {
+describe('Componente para agregar producto', () => {
   let component: AddProductComponent;
   let fixture: ComponentFixture<AddProductComponent>;
   let productsServiceSpy: any;
@@ -32,11 +32,11 @@ describe('AddProductComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('debería crear el componente', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should load product if id is present', async () => {
+  it('debería cargar el producto si el id está presente', async () => {
     const mockProduct = { id: '1', name: 'Test', description: 'Desc', logo: '', date_release: new Date(), date_revision: new Date() };
     productsServiceSpy.getProductById.and.returnValue(Promise.resolve(mockProduct));
     component.idProduct = '1';
@@ -44,7 +44,7 @@ describe('AddProductComponent', () => {
     expect(component.product).toEqual(mockProduct);
   });
 
-  it('should not set product if getProductById returns null', async () => {
+  it('no debería asignar producto si getProductById retorna null', async () => {
     productsServiceSpy.getProductById.and.returnValue(Promise.resolve(null));
     component.idProduct = '2';
     await component.loadProduct('2');

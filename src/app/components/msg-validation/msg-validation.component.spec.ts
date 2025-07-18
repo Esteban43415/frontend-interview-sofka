@@ -3,7 +3,7 @@ import { MsgValidationComponent } from './msg-validation.component';
 import { ValidatorService } from '@app/infrastructure/validator.service';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
-describe('MsgValidationComponent', () => {
+describe('Componente de validación de mensajes', () => {
   let component: MsgValidationComponent;
   let fixture: ComponentFixture<MsgValidationComponent>;
 
@@ -18,11 +18,11 @@ describe('MsgValidationComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('debería crear el componente', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should accept input properties', () => {
+  it('debería aceptar las propiedades de entrada', () => {
     component.formField = 'name';
     component.textColor = 'red';
     component.isFloat = false;
